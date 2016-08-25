@@ -1,38 +1,42 @@
+//bueisnes logic
+var businessPingPong = function (inputNumber) {
+  var numList = [];
+
+  for (var i = 1; i <= inputNumber; i++) {
+
+    if (i % 15 === 0) {
+      var pingPong = "Ping-Pong";
+      numList.push(pingPong);
+    }
+    else if (i % 5 === 0) {
+      var pong = "Pong";
+      numList.push(pong);
+    }
+    else if (i % 3 === 0) {
+      var ping = "Ping";
+      numList.push(ping);
+    }
+    else {
+      numList.push(i);
+    }
+
+    console.log(numList);
+    $("ul#list").append("<li>" + numList[i-1] + "</li>");
+
+  }
+}
+
+// user interface logic
 $(document).ready(function() {
   $("form#input").submit(function(event) {
     event.preventDefault();
 
     $("ul#list").empty();
     var numberInput = parseInt($("#number").val());
-    var numList = [];
-
-    for (var i = 1; i <= numberInput; i++) {
-
-      if (i % 15 === 0) {
-        var pingPong = "Ping-Pong";
-        numList.push(pingPong);
-      }
-      else if (i % 5 === 0) {
-        var pong = "Pong";
-        numList.push(pong);
-      }
-      else if (i % 3 === 0) {
-        var ping = "Ping";
-        numList.push(ping);
-      }
-      else {
-        numList.push(i);
-      }
-
-      console.log(numList);
-      $("ul#list").append("<li>" + numList[i-1] + "</li>");
-
-    }
-
+    businessPingPong(numberInput);
     $("#number").val("");
   });
 });
-
 
 
 
