@@ -2,12 +2,11 @@ $(document).ready(function() {
   $("form#input").submit(function(event) {
     event.preventDefault();
 
-
+    $("ul#list").empty();
     var numberInput = parseInt($("#number").val());
-    $("#result").show;
     var numList = [];
 
-    for (var i = 1; i < numberInput; i++) {
+    for (var i = 1; i <= numberInput; i++) {
 
       if (i % 15 === 0) {
         var pingPong = "Ping-Pong";
@@ -22,10 +21,10 @@ $(document).ready(function() {
         numList.push(ping);
       }
       else {
-      numList.push(i);
-      console.log(numList);
+        numList.push(i);
       }
 
+      console.log(numList);
       $("ul#list").append("<li>" + numList[i-1] + "</li>");
 
     }
