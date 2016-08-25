@@ -20,10 +20,12 @@ var businessPingPong = function (inputNumber) {
       numList.push(i);
     }
 
+
     console.log(numList);
-    $("ul#list").append("<li>" + numList[i-1] + "</li>");
 
   }
+
+  return numList;
 }
 
 // user interface logic
@@ -33,8 +35,11 @@ $(document).ready(function() {
 
     $("ul#list").empty();
     var numberInput = parseInt($("#number").val());
-    businessPingPong(numberInput);
+    var result = businessPingPong(numberInput);
     $("#number").val("");
+    for(i = 0; i < result.length; i++) {
+      $("ul#list").append("<li>" + result[i] + "</li>");
+    }
   });
 });
 
